@@ -1,0 +1,88 @@
+"0","knitr::opts_chunk$set(echo = FALSE)"
+"0",""
+"0","library(foreign)"
+"0",""
+"0","library(tidyverse)"
+"0","library(dplyr)"
+"0","library(janitor)"
+"2","package ‘janitor’ was built under R version 3.5.3"
+"2","
+Attaching package: ‘janitor’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+"
+"0","library(haven)"
+"2","package ‘haven’ was built under R version 3.5.3"
+"0","library(survey)"
+"2","package ‘survey’ was built under R version 3.5.3"
+"2","Loading required package: grid
+"
+"2","Loading required package: Matrix
+"
+"2","
+Attaching package: ‘Matrix’
+
+"
+"2","The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+"
+"2","Loading required package: survival
+"
+"2","
+Attaching package: ‘survey’
+
+"
+"2","The following object is masked from ‘package:graphics’:
+
+    dotchart
+
+"
+"0","library(readxl)"
+"2","package ‘readxl’ was built under R version 3.5.3"
+"0","library(lubridate)"
+"2","
+Attaching package: ‘lubridate’
+
+"
+"2","The following object is masked from ‘package:base’:
+
+    date
+
+"
+"0","library(ggplot2)"
+"0","library(knitr)"
+"2","package ‘knitr’ was built under R version 3.5.3"
+"0","library(kableExtra)"
+"2","package ‘kableExtra’ was built under R version 3.5.3"
+"2","
+Attaching package: ‘kableExtra’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    group_rows
+
+"
+"0","library(scales)"
+"2","
+Attaching package: ‘scales’
+
+"
+"2","The following object is masked from ‘package:purrr’:
+
+    discard
+
+"
+"2","The following object is masked from ‘package:readr’:
+
+    col_factor
+
+"
+"0","library(ggthemes)"
+"2","package ‘ggthemes’ was built under R version 3.5.3"

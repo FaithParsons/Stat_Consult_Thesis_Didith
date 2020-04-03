@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1585880726443.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4083434239",
+    "id" : "468FB9EF",
+    "lastKnownWriteTime" : 1585926926,
+    "last_content_update" : 1585926926692,
+    "path" : "~/GitHub/Stat Consulting/Stat_Consult_Thesis_Didith/Thesis.Rmd",
+    "project_path" : "Thesis.Rmd",
+    "properties" : {
+        "cursorPosition" : "264,30",
+        "last_setup_crc32" : "E484FA80c13a8115",
+        "scrollLine" : "246"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
