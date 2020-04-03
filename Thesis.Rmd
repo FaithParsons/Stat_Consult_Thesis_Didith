@@ -1,5 +1,5 @@
 ---
-title: "Thesis Analysis for Gladys Faith Quidasol"
+title: "Statistical Analysis for Gladys Faith Quidasol"
 author: "Faith Evangelista-Parsons"
 date: "3/31/2020"
 output: html_document

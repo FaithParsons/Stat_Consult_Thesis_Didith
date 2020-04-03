@@ -5,16 +5,17 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "4083434239",
+    "hash" : "707459355",
     "id" : "468FB9EF",
-    "lastKnownWriteTime" : 1585926926,
-    "last_content_update" : 1585926926692,
+    "lastKnownWriteTime" : 1585937241,
+    "last_content_update" : 1585937241732,
     "path" : "~/GitHub/Stat Consulting/Stat_Consult_Thesis_Didith/Thesis.Rmd",
     "project_path" : "Thesis.Rmd",
     "properties" : {
-        "cursorPosition" : "264,30",
-        "last_setup_crc32" : "E484FA80c13a8115",
-        "scrollLine" : "246"
+        "cursorPosition" : "9,0",
+        "last_setup_crc32" : "",
+        "scrollLine" : "4",
+        "working_dir" : "default"
     },
     "read_only" : false,
     "read_only_alternatives" : [
