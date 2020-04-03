@@ -1,7 +1,6 @@
 ---
 title: "Statistical Analysis for Gladys Faith Quidasol"
-author: "Faith Evangelista-Parsons"
-date: "3/31/2020"
+author: "Analyst: Faith Evangelista-Parsons"
 output: html_document
 ---
 
@@ -49,6 +48,7 @@ norm_lh_vocab <- shapiro.test(longhand$Vocab_diff)
 
 
 ```
+
 
 
 ## Test of Normality
@@ -279,4 +279,7 @@ p-value: `r t_total_diff$p.value`
 
 *Interpretation*: There is no significant difference in the change in total scores between the gadget-based and longhand technique groups.
 
+## Reference files
+
+All data files and codes can be found and downloaded from this [GitHub repository](https://github.com/FaithParsons/Stat_Consult_Thesis_Didith).
 
