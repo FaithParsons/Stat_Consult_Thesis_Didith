@@ -1,0 +1,282 @@
+---
+title: "Thesis Analysis for Gladys Faith Quidasol"
+author: "Faith Evangelista-Parsons"
+date: "3/31/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(foreign)
+
+library(tidyverse)
+library(dplyr)
+library(janitor)
+library(haven)
+library(survey)
+library(readxl)
+library(lubridate)
+library(ggplot2)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(ggthemes)
+
+```
+
+```{r, echo=FALSE, include=FALSE}
+# Import gadget data
+gadget   <- read_csv("./data/gadget.csv") %>%
+  mutate(Vocab_diff = Vocab_post-Vocab_Pre,
+         Grammar_diff = Grammar_Post-Grammar_Pre,
+         Total_diff = Total_Post-Total_Pre) 
+
+# Import longhand data 
+longhand <- read_csv("./data/longhand.csv") %>%
+ mutate(Vocab_diff = Vocab_Post-Vocab_Pre,
+         Grammar_diff = Grammar_Post-Grammar_Pre,
+         Total_diff = Total_Post-Total_Pre) 
+
+
+norm_g_total  <- shapiro.test(gadget$Total_diff)
+norm_g_gram   <-  shapiro.test(gadget$Grammar_diff)
+norm_g_vocab  <- shapiro.test(gadget$Vocab_diff)
+
+norm_lh_total <- shapiro.test(longhand$Total_diff)
+norm_lh_gram  <- shapiro.test(longhand$Grammar_diff)
+norm_lh_vocab <- shapiro.test(longhand$Vocab_diff)
+
+
+```
+
+
+## Test of Normality
+
+The Shapiro Wilk's test was used to assess whether the differences between pre-test and post-test scores follow the normal distribution for grammar, vocabulary, and total scores in the longhand, and the gadget-based group. A p-value > 0.05 indicates that the difference was normally distributed. 
+
+
+### Gadget Based Group
+
+#### <u>Vocabulary</u>
+
+Shapiro-Wilk: `r norm_g_vocab$statistic`
+
+p-value: `r norm_g_vocab$p.value`
+
+*Interpretation*: The difference between pre- and post-test VOCABULARY scores is normally distributed. 
+
+#### <u> Grammar </u>
+
+Shapiro-Wilk: `r norm_g_gram$statistic`
+
+p-value: `r norm_g_gram$p.value`
+
+*Interpretation*: The difference between pre- and post-test GRAMMAR scores is normally distributed. 
+
+
+#### <u>Total Score</u>
+
+Shapiro-Wilk: `r norm_g_total$statistic`
+
+p-value: `r norm_g_total$p.value`
+
+*Interpretation*: The difference between pre- and post-test TOTAL scores is normally distributed. 
+
+
+### <u>Longhand Group</u>
+
+#### Vocabulary
+
+Shapiro-Wilk: `r norm_lh_vocab$statistic`
+
+p-value: `r norm_lh_vocab$p.value`
+
+*Interpretation*: The difference between pre- and post-test VOCABULARY scores is normally distributed. 
+
+
+#### <u>Grammar</u>
+
+Shapiro-Wilk: `r norm_lh_gram$statistic`
+
+p-value: `r norm_lh_gram$p.value`
+
+*Interpretation*: The difference between pre- and post-test GRAMMAR scores is normally distributed. 
+
+
+#### <u>Total Score</u>
+
+Shapiro-Wilk: `r norm_lh_total$statistic`
+
+p-value: `r norm_lh_total$p.value`
+
+*Interpretation*: The difference between pre- and post-test TOTAL scores is normally distributed. 
+
+
+
+```{r, include=FALSE}
+# Paired T-test: Gadget group
+t_g_vocab <-   t.test(gadget$Vocab_post,   gadget$Vocab_Pre,  paired=TRUE)
+t_g_grammar <- t.test(gadget$Grammar_Post, gadget$Grammar_Pre,paired=TRUE)
+t_g_total   <- t.test(gadget$Total_Post,   gadget$Total_Pre,  paired=TRUE)
+
+
+```
+
+## Paired T-Test
+
+Since the differences between pre- and post-test scores all follow the normal distribution, the paired t-test method was used to assess Hypotheses 1 and 2. 
+
+### Is there a significant difference between the level of oral communication skills of learners before and after using <u>**gadget-based**</u> review technique?
+
+#### <u>Grammar</u>
+
+Mean diff. (Post - Pre): `r t_g_grammar$estimate` 
+
+Std. Dev.: `r sd(gadget$Grammar_diff)`
+
+T-statistic: `r t_g_grammar$statistic`
+
+DF: `r t_g_grammar$parameter`
+
+p-value: `r t_g_grammar$p.value`
+
+*Interpretation*: There is no significant difference in grammar scores before and after  using the gadget-based review technique.
+
+
+#### <u>Vocabulary</u>
+
+Mean diff (Post - Pre): `r t_g_vocab$estimate` 
+
+Std. Dev.: `r sd(gadget$Vocab_diff)`
+
+T-statistic: `r t_g_vocab$statistic`
+
+DF: `r t_g_vocab$parameter`
+
+p-value: `r t_g_vocab$p.value`
+
+*Interpretation*: There is no significant difference in vocabulary scores before and after using the gadget-based review technique.
+
+#### <u>Total</u>
+
+Mean diff (Post - Pre): `r t_g_total$estimate` 
+
+Std. Dev.: `r sd(gadget$Total_diff)`
+
+T-statistic: `r t_g_total$statistic`
+
+DF: `r t_g_total$parameter`
+
+p-value: `r t_g_total$p.value`
+
+*Interpretation*: There is no significant difference in total scores before and after using the gadget-based review technique.
+
+
+
+```{r, include=FALSE}
+# Paired T-test: longhand group
+t_lh_vocab <-   t.test(longhand$Vocab_Post,   longhand$Vocab_Pre,  paired=TRUE)
+t_lh_grammar <- t.test(longhand$Grammar_Post, longhand$Grammar_Pre,paired=TRUE)
+t_lh_total   <- t.test(longhand$Total_Post,   longhand$Total_Pre,  paired=TRUE)
+
+
+```
+
+
+### Is there a significant difference between the level of oral communication skills of learners before and after using <u>**longhand**</u> review technique?
+
+#### <u>Grammar</u>
+
+Mean diff. (Post - Pre): `r t_lh_grammar$estimate` 
+
+Std. Dev.: `r sd(longhand$Grammar_diff)`
+
+T-statistic: `r t_lh_grammar$statistic`
+
+DF: `r t_lh_grammar$parameter`
+
+p-value: `r t_lh_grammar$p.value`
+
+*Interpretation*: There is no significant difference in grammar scores before and after  using the longhand review technique.
+
+
+#### <u>Vocabulary</u>
+
+Mean diff (Post - Pre): `r t_g_vocab$estimate` 
+
+Std. Dev.: `r sd(gadget$Vocab_diff)`
+
+T-statistic: `r t_g_vocab$statistic`
+
+DF: `r t_g_vocab$parameter`
+
+p-value: `r t_g_vocab$p.value`
+
+*Interpretation*: There is no significant difference in vocabulary scores before and after using the longhand review technique.
+
+#### <u>Total</u>
+
+Mean diff (Post - Pre): `r t_g_total$estimate` 
+
+Std. Dev.: `r sd(gadget$Total_diff)`
+
+T-statistic: `r t_g_total$statistic`
+
+DF: `r t_g_total$parameter`
+
+p-value: `r t_g_total$p.value`
+
+*Interpretation*: There is no significant difference in total scores before and after using the longhand review technique.
+
+
+### Is there a significant difference between the level of oral communication skills of learners using gadget-based and longhand review technique?
+
+```{r}
+group_compare <- data.frame(
+  group = rep(c("Gadget", "Longhand"), each=15),
+  vocab_diff = c(gadget$Vocab_diff, longhand$Vocab_diff),
+  grammar_diff = c(gadget$Grammar_diff, longhand$Grammar_diff),
+  total_diff = c(gadget$Total_diff, longhand$Total_diff)
+) 
+
+t_grammar_diff <- t.test(group_compare$grammar_diff~group_compare$group)
+t_vocab_diff   <- t.test(group_compare$vocab_diff~group_compare$group)
+t_total_diff   <- t.test(group_compare$total_diff~group_compare$group)
+
+```
+#### <u>Grammar</u>
+
+
+T-statistic: `r t_grammar_diff$statistic`
+
+DF: `r t_grammar_diff$parameter`
+
+p-value: `r t_grammar_diff$p.value`
+
+*Interpretation*: There is no significant difference in the change in grammar scores between the gadget-based and longhand technique groups.
+
+
+#### <u>Vocabulary</u>
+
+
+T-statistic: `r t_vocab_diff$statistic`
+
+DF: `r t_vocab_diff$parameter`
+
+p-value: `r t_vocab_diff$p.value`
+
+*Interpretation*: There is no significant difference in the change in vocabulary scores between the gadget-based and longhand technique groups.
+
+#### <u>Total</u>
+
+ 
+T-statistic: `r t_total_diff$statistic`
+
+DF: `r t_total_diff$parameter`
+
+p-value: `r t_total_diff$p.value`
+
+*Interpretation*: There is no significant difference in the change in total scores between the gadget-based and longhand technique groups.
+
+
