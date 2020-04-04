@@ -51,6 +51,10 @@ norm_lh_vocab <- shapiro.test(longhand$Vocab_diff)
 
 
 
+
+
+# Statistical tests
+
 ## Test of Normality
 
 The Shapiro Wilk's test was used to assess whether the differences between pre-test and post-test scores follow the normal distribution for grammar, vocabulary, and total scores in the longhand, and the gadget-based group. A p-value > 0.05 indicates that the difference was normally distributed. 
@@ -119,6 +123,7 @@ p-value: `r norm_lh_total$p.value`
 t_g_vocab <-   t.test(gadget$Vocab_post,   gadget$Vocab_Pre,  paired=TRUE)
 t_g_grammar <- t.test(gadget$Grammar_Post, gadget$Grammar_Pre,paired=TRUE)
 t_g_total   <- t.test(gadget$Total_Post,   gadget$Total_Pre,  paired=TRUE)
+
 
 
 ```
@@ -203,15 +208,15 @@ p-value: `r t_lh_grammar$p.value`
 
 #### <u>Vocabulary</u>
 
-Mean diff (Post - Pre): `r t_g_vocab$estimate` 
+Mean diff (Post - Pre): `r t_lh_vocab$estimate` 
 
-Std. Dev.: `r sd(gadget$Vocab_diff)`
+Std. Dev.: `r sd(longhand$Vocab_diff)`
 
-T-statistic: `r t_g_vocab$statistic`
+T-statistic: `r t_lh_vocab$statistic`
 
-DF: `r t_g_vocab$parameter`
+DF: `r t_lh_vocab$parameter`
 
-p-value: `r t_g_vocab$p.value`
+p-value: `r t_lh_vocab$p.value`
 
 *Interpretation*: There is no significant difference in vocabulary scores before and after using the longhand review technique.
 
@@ -219,13 +224,13 @@ p-value: `r t_g_vocab$p.value`
 
 Mean diff (Post - Pre): `r t_g_total$estimate` 
 
-Std. Dev.: `r sd(gadget$Total_diff)`
+Std. Dev.: `r sd(longhand$Total_diff)`
 
-T-statistic: `r t_g_total$statistic`
+T-statistic: `r t_lh_total$statistic`
 
-DF: `r t_g_total$parameter`
+DF: `r t_lh_total$parameter`
 
-p-value: `r t_g_total$p.value`
+p-value: `r t_lh_total$p.value`
 
 *Interpretation*: There is no significant difference in total scores before and after using the longhand review technique.
 
